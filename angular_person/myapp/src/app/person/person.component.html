@@ -1,0 +1,32 @@
+<table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">First</th>
+        <th scope="col">Last</th>
+        <th scope="col">email</th>
+        <th scope="col">House</th>
+        <th scope="col">Address Type</th>
+        <th scope="col">Location</th>
+        <th scope="col">Land Mark</th>
+        <th scope="col">Phone Type</th>
+        <th scope="col">Phone </th>
+
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor ="let person of  persons;index as i" >
+        <th scope="row" >{{i+1}}</th>
+        <td>{{person.first_name}}</td>
+        <td>{{person.last_name}}</td>
+        <td>{{person.email}}</td>
+        <td>{{person.get_address[0].house_name}}</td>
+        <td>{{person.get_address[0].address_type_value}}</td>
+        <td>{{person.get_address[0].location}}</td>
+        <td>{{person.get_address[0].land_mark}}</td>
+        <td>{{person.get_phone[0].contact_number_type_value}}</td>
+        <td>{{person.get_phone[0].ph_number}}</td>
+      </tr>
+    </tbody>
+  </table>
+  

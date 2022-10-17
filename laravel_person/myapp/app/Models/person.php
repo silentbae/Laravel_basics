@@ -2,6 +2,8 @@
 
 namespace App\Models;
 
+use Illuminate\Http\Request;
+use Image, Validator, DB, File, Redirect, Response, Config, ResponseManager, URL, App ;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\address;
@@ -65,6 +67,8 @@ class person extends Model
     ])
     ->select('person_id','first_name','last_name','email')
     ->get();
+    //echo "bbbb";    
+    return $my_data;
     foreach($my_data as $person_data)
     {
         

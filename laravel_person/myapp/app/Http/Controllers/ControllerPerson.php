@@ -13,6 +13,11 @@ class ControllerPerson extends Controller
     function index()
     {  
         $data = person::GetMyDetails();
+        return response()->json([
+          'status' => 200,
+          'message' => '',
+          'data' =>$data
+      ]);
     }
     function addPerson(Request $request){
         echo "Person received"; 
