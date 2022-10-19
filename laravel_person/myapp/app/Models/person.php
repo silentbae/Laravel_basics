@@ -69,41 +69,41 @@ class person extends Model
     ->get();
     //echo "bbbb";    
     return $my_data;
-    foreach($my_data as $person_data)
-    {
+    // foreach($my_data as $person_data)
+    // {
         
-        echo "Name-";
-        print_r($person_data->first_name);
-        print_r("\t");
-        print_r($person_data->last_name);
-        print_r("\n");
-        echo "Email-";
-        print_r($person_data->email);
-        print_r("\n");
-        foreach($person_data['getAddress'] as $address_data){
-            echo "Address Type-";
-            print_r($address_data->address_type_value);
-            print_r("\n");
-            echo "House Name-";
-            print_r($address_data->house_name);
-            print_r("\n");
-            echo "Location-";
-            print_r($address_data->location);
-            print_r("\n");
-            echo "Land Mark-";
-            print_r($address_data->land_mark);
-            print_r("\n");
-       }
-        foreach($person_data['getPhone'] as $ph_data){
-            echo "Phone Type- ";
-            print_r($ph_data->contact_number_type_value);
-            print_r("\n");
-            echo "Phone- ";
-            print_r($ph_data->ph_number);
-            print_r("\n");   
-        }
-        print_r("\n");
-    }
-    return  $my_data;
+    //     echo "Name-";
+    //     print_r($person_data->first_name);
+    //     print_r("\t");
+    //     print_r($person_data->last_name);
+    //     print_r("\n");
+    //     echo "Email-";
+    //     print_r($person_data->email);
+    //     print_r("\n");
+    //     foreach($person_data['getAddress'] as $address_data){
+    //         echo "Address Type-";
+    //         print_r($address_data->address_type_value);
+    //         print_r("\n");
+    //         echo "House Name-";
+    //         print_r($address_data->house_name);
+    //         print_r("\n");
+    //         echo "Location-";
+    //         print_r($address_data->location);
+    //         print_r("\n");
+    //         echo "Land Mark-";
+    //         print_r($address_data->land_mark);
+    //         print_r("\n");
+    //    }
+    //     foreach($person_data['getPhone'] as $ph_data){
+    //         echo "Phone Type- ";
+    //         print_r($ph_data->contact_number_type_value);
+    //         print_r("\n");
+    //         echo "Phone- ";
+    //         print_r($ph_data->ph_number);
+    //         print_r("\n");   
+    //     }
+    //     print_r("\n");
+    // }
+    // return  $my_data;
     }
 }

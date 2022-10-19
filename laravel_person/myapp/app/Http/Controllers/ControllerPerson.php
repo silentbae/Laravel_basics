@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\person;
 use App\Models\address;
+use App\Models\documents;
+
 
 
 class ControllerPerson extends Controller
@@ -50,4 +52,23 @@ class ControllerPerson extends Controller
             'address_type_id' => $address_type_id,                     
           ]);
     }
+    function fileUpload(Request $request){
+      $request->validate([
+        'file' => 'required|mimes:csv,txt,xlx,xls,pdf|max:2048'
+        ]);
+      $fileModel = new documents;
+      if( $request->file()){
+        $fileName = time().'_'. $request->file->getClientOriginalName();
+        $filePath = $request->file('file')->storeAs('uploads', $fileName, 'public');
+        $fileModel->document_name = time().'_'. $request->file->getClientOriginalName();
+        $fileModel->document_id = $request->input('document_id');
+        $fileModel->person_id = $request->input('person_id');
+        $fileModel->document_type = $request->input('document_type');
+        $fileModel->upload_date = $request->input('upload_date');
+        $fileModel->expiry_date = $request->input('expiry_date');
+        // $fileModel->created_at = $request->input('created_at');  
+        $fileModel->save();
+        return back();
+      }
+  }
 }

@@ -24,3 +24,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::get('persondetails', [ControllerPerson::class, 'index']);
 Route::post('/addperson', [ControllerPerson::class, 'addPerson']);
 Route::post('/addaddress', [ControllerPerson::class, 'addAddress']);
+Route::post('/fileupload', [ControllerPerson::class, 'fileUpload']);
