@@ -1,0 +1,24 @@
+ <table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">First</th>
+        <th scope="col">Last</th>
+        <th scope="col">Document Name</th>
+        <!-- <th scope="col">Document Type</th> -->
+        <th scope="col">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>{{myData.person_id}}</td>
+        <td>{{myData.first_name}}</td>
+        <td>{{myData.last_name}}</td>
+        <h4 *ngFor="let document of myData.get_documents">{{document.document_name}}</h4>
+        <!-- <td *ngFor="let document of myData.get_documents" >{{document.document_type_value}}</td> -->
+        <td><input class="form-control" type="file" (change)="onFilechange($event)"/><br>
+            <button  class="btn btn-success" (click)="uploadFile()">Upload</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>

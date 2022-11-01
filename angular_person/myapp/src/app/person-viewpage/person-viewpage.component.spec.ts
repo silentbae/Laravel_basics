@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { DswDocumentsComponent } from './dsw-documents.component';
+import { PersonViewpageComponent } from './person-viewpage.component';
 
-describe('DswDocumentsComponent', () => {
-  let component: DswDocumentsComponent;
-  let fixture: ComponentFixture<DswDocumentsComponent>;
+describe('PersonViewpageComponent', () => {
+  let component: PersonViewpageComponent;
+  let fixture: ComponentFixture<PersonViewpageComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ DswDocumentsComponent ]
+      declarations: [ PersonViewpageComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(DswDocumentsComponent);
+    fixture = TestBed.createComponent(PersonViewpageComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

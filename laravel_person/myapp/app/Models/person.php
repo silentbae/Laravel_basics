@@ -9,6 +9,8 @@ use Illuminate\Database\Eloquent\Model;
 use App\Models\address;
 use App\Models\phone;
 use App\Models\conf_contact_number_type;
+use App\Models\documents;
+use App\Models\conf_document_types;
 
 
 
@@ -37,6 +39,14 @@ class person extends Model
            'person_id',
            'person_id',
         );
+
+    }
+    public function getDocuments(){
+        return $this->hasMany(
+            documents::class,
+           'person_id',
+           'person_id',
+        );
     }
     // public function getPhoneType(){
     //     return $this->hasMany(
@@ -61,17 +71,23 @@ class person extends Model
             $query->leftjoin('conf_address_type AS cat',  'address.address_type_id','=', 'cat.address_type_id');
             $query->select('address.person_id','address.address_id','address.house_name','address.location','address.land_mark','cat.address_type_value');
         },
+        'getDocuments'=> function ($query){
+            $query->leftjoin('conf_document_types AS cdt','documents.document_type_id','=','cdt.document_type_id');
+            $query->select('documents.person_id','documents.document_name','cdt.document_type_value');
+        },
         // 'getPhoneType'=> function ($query){
         //     $query->select('');
-        // }
+        //}
+
+
     ])
     ->select('person_id','first_name','last_name','email')
     ->get();
     //echo "bbbb";    
     return $my_data;
-    // foreach($my_data as $person_data)
+    // foreach($my_data as $person_data) 
     // {
-        
+                
     //     echo "Name-";
     //     print_r($person_data->first_name);
     //     print_r("\t");

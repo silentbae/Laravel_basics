@@ -1,4 +1,4 @@
-<table class="table">
+<!-- <table class="table">
     <thead class="thead-dark">
       <tr>
         <th scope="col">#</th>
@@ -10,8 +10,8 @@
         <th scope="col">Location</th>
         <th scope="col">Land Mark</th>
         <th scope="col">Phone Type</th>
-        <th scope="col">Phone </th>
-
+        <th scope="col">Phone</th>
+        <th scope="col">Action</th>
       </tr>
     </thead>
     <tbody>
@@ -26,7 +26,97 @@
         <td>{{person.get_address[0].land_mark}}</td>
         <td>{{person.get_phone[0].contact_number_type_value}}</td>
         <td>{{person.get_phone[0].ph_number}}</td>
+        <td> <button  class="btn btn-success">Upload</button></td>
       </tr>
     </tbody>
   </table>
-  
+   -->
+
+
+
+   <div class="col-md-12">
+    <mat-table  [dataSource]="dataSource">
+      <!-- <ng-container matColumnDef="Id">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> ID </mat-header-cell>
+        <mat-cell *matCellDef="let row; let index = index" data-label="id">
+           {{index + 1}}
+        </mat-cell>
+      </ng-container> -->
+
+      <ng-container matColumnDef="First">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> First </mat-header-cell>
+        <mat-cell *matCellDef="let row" data-label="first">{{row.first_name}}</mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="Last">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Last </mat-header-cell>
+        <mat-cell *matCellDef="let row" data-label="last">{{row.last_name}}</mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="Email">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>email </mat-header-cell>
+        <mat-cell *matCellDef="let row" data-label="email">{{row.email}}</mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="House">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>House </mat-header-cell>
+        <mat-cell *matCellDef="let row" data-label="house">{{row.get_address[0].house_name}}</mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="Address Type">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Address Type </mat-header-cell>
+        <mat-cell *matCellDef="let row" data-label="address Type">{{row.get_address[0].address_type_value}}</mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="Location">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Location</mat-header-cell>
+        <mat-cell *matCellDef="let row" data-label="location">{{row.get_address[0].location}}</mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="Land Mark">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Land Mark</mat-header-cell>
+        <mat-cell *matCellDef="let row" data-label="land Mark">{{row.get_address[0].land_mark}}</mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="Phone Type">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Phone Type</mat-header-cell>
+        <mat-cell *matCellDef="let row" data-label="phone Type">{{row.get_phone[0].contact_number_type_value}}</mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="Phone">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Phone </mat-header-cell>
+        <mat-cell *matCellDef="let row" data-label="phone">{{row.get_phone[0].ph_number}}</mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="Document Type">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Document Type </mat-header-cell>
+        <mat-cell *matCellDef="let row" data-label="document_Type">{{row.get_documents[0].document_type_value}}</mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="Document Name">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Document Name </mat-header-cell>
+        <mat-cell *matCellDef="let row" data-label="document_Name">{{row.get_documents[0].document_name}}</mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="Action">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Action </mat-header-cell>
+        <mat-cell *matCellDef="let row let index = index" data-label="Action">
+          <!-- <mat-icon class="form-control"  type="file" (change)="onFilechange($event)"> attach_file</mat-icon> -->
+          <!-- <input class="form-control" type="file" (change)="onFilechange($event)"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -->
+          <!-- <button  class="btn btn-success" (click)="uploadFile(row, index)">Upload</button> -->
+          <button  class="btn btn-success" (click)="viewButton(row, index)">View</button>
+        </mat-cell>
+      </ng-container>
+
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns;" 
+          title="Click to show schedule details"></mat-row>
+
+    </mat-table>
+    <!-- <div style="text-align: center; font-size:14px;padding: 10px 0px  10px;">{{}}</div>
+    <div style="text-align: center; font-size:14px;padding: 10px 0px  10px;">{{}}</div> -->
+
+    
+  </div>
+
+                                                                                                                                            

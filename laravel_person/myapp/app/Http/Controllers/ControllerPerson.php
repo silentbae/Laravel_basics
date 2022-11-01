@@ -21,6 +21,16 @@ class ControllerPerson extends Controller
           'data' =>$data
       ]);
     }
+    function getId(person $person)
+    {  
+        $data = person::GetMyDetails.find();
+        return response()->json([
+          'status' => 200,
+          'message' => '',
+          'data' =>$data
+      ]);
+    }
+
     function addPerson(Request $request){
         echo "Person received"; 
         $person = new person;
@@ -28,7 +38,6 @@ class ControllerPerson extends Controller
         $first_name = $request->input('first_name');
         $last_name  = $request->input('last_name');
         $email = $request->input('email');
-
           return person::create([
             'person_id' => $person_id,
             'first_name' =>$first_name,
@@ -60,10 +69,10 @@ class ControllerPerson extends Controller
       if( $request->file()){
         $fileName = time().'_'. $request->file->getClientOriginalName();
         $filePath = $request->file('file')->storeAs('uploads', $fileName, 'public');
-        $fileModel->document_name = time().'_'. $request->file->getClientOriginalName();
-        $fileModel->document_id = $request->input('document_id');
+        $fileModel->document_name = time().'_'.$fileName;
+        // $fileModel->document_id = $request->input('document_id');
         $fileModel->person_id = $request->input('person_id');
-        $fileModel->document_type = $request->input('document_type');
+        $fileModel->document_type_id = $request->input('document_type');
         $fileModel->upload_date = $request->input('upload_date');
         $fileModel->expiry_date = $request->input('expiry_date');
         // $fileModel->created_at = $request->input('created_at');  
